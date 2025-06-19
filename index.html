@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pedro Mercado - Backend Developer especializado en APIs de alta performance, microservicios y sistemas escalables. Portfolio con proyectos reales.">
+    <meta name="keywords" content="backend developer, PHP, Python, API development, microservices, database optimization, Pedro Mercado">
+    <meta name="author" content="Pedro Mercado">
+
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Pedro Mercado - Backend Developer & Systems Architect">
+    <meta property="og:description" content="Especialista en APIs de alta performance y arquitectura de microservicios">
+    <meta property="og:url" content="https://tu-usuario.github.io">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedro Mercado - Backend Developer">
+    <meta name="twitter:description" content="Backend Developer especializado en sistemas escalables">
+
+    <title>Pedro Mercado - Backend Developer & Systems Architect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Matrix Background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 2px solid #00ff41;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            font-family: 'Courier New', monospace;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            color: #00ff41;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #00ff41;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px #00ff41;
+        }
+
+        .nav-links a::before {
+            content: "./";
+            color: #888;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #0f1419 100%);
+        }
+
+        .terminal-window {
+            background: #1e1e1e;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            padding: 2rem;
+            max-width: 800px;
+            box-shadow: 0 0 50px rgba(0, 255, 65, 0.3);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f56;
+        }
+
+        .terminal-button:nth-child(2) { background: #ffbd2e; }
+        .terminal-button:nth-child(3) { background: #27ca3f; }
+
+        .terminal-content h1 {
+            font-size: 2.5rem;
+            color: #00ff41;
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            background: #0d1117;
+            padding: 1.5rem;
+            border-radius: 5px;
+            border-left: 4px solid #00ff41;
+            margin: 1rem 0;
+        }
+
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .comment { color: #6a9955; }
+        .function { color: #dcdcaa; }
+        .variable { color: #9cdcfe; }
+
+        .typing-animation {
+            border-right: 2px solid #00ff41;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: #00ff41; }
+            51%, 100% { border-color: transparent; }
+        }
+
+        /* Performance Dashboard */
+        .performance-dashboard {
+            padding: 100px 0;
+            background: #0f1419;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #00ff41;
+        }
+
+        .section-title::before {
+            content: "// ";
+            color: #6a9955;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: #1e1e1e;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-title {
+            color: #00ff41;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-unit {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .metric-chart {
+            height: 60px;
+            position: relative;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to top, #00ff41, #00ff4180);
+            margin-right: 1px;
+            animation: chartUpdate 3s ease-in-out infinite;
+        }
+
+        @keyframes chartUpdate {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.3); }
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .status-good { background: #00ff41; animation: pulse 2s infinite; }
+        .status-warning { background: #ffbd2e; animation: pulse 2s infinite; }
+        .status-critical { background: #ff5f56; animation: pulse 2s infinite; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Microservices Architecture */
+        .microservices {
+            padding: 100px 0;
+            background: #0a0a0a;
+        }
+
+        .architecture-container {
+            position: relative;
+            height: 500px;
+            margin: 3rem 0;
+            background: #1e1e1e;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .service-node {
+            position: absolute;
+            background: #2d2d2d;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            padding: 1rem;
+            min-width: 120px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-node:hover {
+            transform: scale(1.1);
+            background: #00ff4120;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+        }
+
+        .service-node.active {
+            background: #00ff4130;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.7);
+        }
+
+        .service-title {
+            color: #00ff41;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-status {
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        .connection-line {
+            position: absolute;
+            background: #00ff41;
+            height: 2px;
+            transform-origin: left center;
+            opacity: 0.6;
+            animation: dataFlow 2s linear infinite;
+        }
+
+        @keyframes dataFlow {
+            0% { box-shadow: 0 0 0 rgba(0, 255, 65, 0.8); }
+            50% { box-shadow: 10px 0 20px rgba(0, 255, 65, 0.8); }
+            100% { box-shadow: 0 0 0 rgba(0, 255, 65, 0.8); }
+        }
+
+        .data-packet {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #00ff41;
+            border-radius: 50%;
+            animation: travel 3s linear infinite;
+        }
+
+        @keyframes travel {
+            0% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(200px); opacity: 0; }
+        }
+
+        /* Live Log Monitor */
+        .log-monitor {
+            padding: 100px 0;
+            background: #0f1419;
+        }
+
+        .log-terminal {
+            background: #1e1e1e;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .log-header {
+            background: #333;
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid #00ff41;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        .log-title {
+            color: #00ff41;
+            font-size: 1rem;
+        }
+
+        .log-controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .log-button {
+            background: none;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .log-button:hover {
+            background: #00ff4120;
+        }
+
+        .log-content {
+            padding: 1rem;
+            height: calc(100% - 50px);
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+
+        .log-entry {
+            margin: 0.2rem 0;
+            padding: 0.2rem;
+            border-radius: 3px;
+            opacity: 0;
+            animation: logAppear 0.5s ease-in forwards;
+        }
+
+        @keyframes logAppear {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .log-timestamp {
+            color: #888;
+        }
+
+        .log-level-info { color: #00ff41; }
+        .log-level-warning { color: #ffbd2e; }
+        .log-level-error { color: #ff5f56; }
+
+        .log-method-get { color: #28a745; }
+        .log-method-post { color: #007bff; }
+        .log-method-put { color: #ffc107; }
+        .log-method-delete { color: #dc3545; }
+
+        /* Data Flow Diagram */
+        .data-flow {
+            padding: 100px 0;
+            background: #0a0a0a;
+        }
+
+        .flow-diagram {
+            position: relative;
+            height: 400px;
+            margin: 3rem 0;
+            background: #1e1e1e;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .flow-step {
+            position: absolute;
+            background: #2d2d2d;
+            border: 2px solid #00ff41;
+            border-radius: 50px;
+            padding: 1rem 1.5rem;
+            color: #00ff41;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .flow-arrow {
+            position: absolute;
+            color: #00ff41;
+            font-size: 1.5rem;
+            animation: bounce 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateX(0); }
+            to { transform: translateX(10px); }
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background: #0f1419;
+        }
+
+        .project-terminal {
+            background: #1e1e1e;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .project-header {
+            background: #333;
+            padding: 1rem;
+            border-bottom: 1px solid #00ff41;
+        }
+
+        .project-title {
+            color: #00ff41;
+            font-size: 1.3rem;
+        }
+
+        .project-code {
+            padding: 1.5rem;
+            background: #0d1117;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .project-metrics {
+            background: #1e1e1e;
+            padding: 1rem;
+            border-top: 1px solid #333;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .metric {
+            color: #00ff41;
+        }
+
+        .metric-value {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 100px 0;
+            background: #0a0a0a;
+            text-align: center;
+        }
+
+        .contact-terminal {
+            background: #1e1e1e;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .availability-status {
+            background: #00ff41;
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 2rem 0;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        .contact-info {
+            color: #9cdcfe;
+            margin: 1rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 2rem 0;
+            color: #00ff41;
+            border-top: 2px solid #00ff41;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .terminal-window { padding: 1rem; }
+            .architecture-container { height: 300px; }
+            .flow-diagram { height: 250px; }
+        }
+        /* Botones CTA */
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #00ff41;
+            font-family: 'Courier New', monospace;
+        }
+
+        .cta-button.primary {
+            background: #00ff41;
+            color: #000;
+        }
+
+        .cta-button.primary:hover {
+            background: #00cc33;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #00ff41;
+        }
+
+        .cta-button.secondary:hover {
+            background: #00ff4120;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.tertiary {
+            background: transparent;
+            color: #9cdcfe;
+            border-color: #9cdcfe;
+        }
+
+        .cta-button.tertiary:hover {
+            background: #9cdcfe20;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Background -->
+    <canvas class="matrix-bg" id="matrix"></canvas>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">pedro@backend-server:~$</div>
+            <ul class="nav-links">
+                <li><a href="#home">home</a></li>
+                <li><a href="#performance">monitoring</a></li>
+                <li><a href="#architecture">architecture</a></li>
+                <li><a href="#logs">logs</a></li>
+                <li><a href="#dataflow">dataflow</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-button"></div>
+                    <div class="terminal-button"></div>
+                    <div class="terminal-button"></div>
+                </div>
+                <div class="terminal-content">
+                    <h1>Pedro Mercado</h1>
+                    <div class="code-block">
+                        <div class="code-line">
+                            <span class="keyword">class</span> <span class="function">BackendEngineer</span> <span class="keyword">extends</span> <span class="function">SystemArchitect</span> {
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="keyword">private</span> <span class="variable">$specialization</span> = [
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'High-Performance APIs (1000+ req/s)'</span>,
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Microservices Architecture'</span>,
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Database Optimization'</span>,
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Real-time Monitoring Systems'</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;];
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="comment">// 3+ años especializándome en backend</span>
+                        </div>
+                        <div class="code-line">
+                            &nbsp;&nbsp;<span class="comment">// Sistemas listos para producción</span>
+                        </div>
+                        <div class="code-line typing-animation">
+                            &nbsp;&nbsp;<span class="comment">// Buscando mi primera oportunidad empresarial</span>
+                        </div>
+                        <div class="code-line">}</div>
+                    </div>
+                     <!-- Agrega botones CTA -->
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#projects" class="cta-button primary">Ver Mis Proyectos</a>
+                        <a href="#contact" class="cta-button secondary">Contactar</a>
+                        <a href="./pedro-mercado-cv.pdf" class="cta-button tertiary" target="_blank">Descargar CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Dashboard -->
+    <section id="performance" class="performance-dashboard">
+        <div class="container">
+            <h2 class="section-title">Real-Time Performance Monitoring</h2>
+            <div class="dashboard-grid">
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span class="status-indicator status-good"></span>
+                        CPU Usage
+                    </div>
+                    <div class="metric-value" id="cpu-value">23%</div>
+                    <div class="metric-unit">Current Load</div>
+                    <div class="metric-chart" id="cpu-chart"></div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span class="status-indicator status-good"></span>
+                        Memory Usage
+                    </div>
+                    <div class="metric-value" id="memory-value">1.2GB</div>
+                    <div class="metric-unit">of 8GB available</div>
+                    <div class="metric-chart" id="memory-chart"></div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span class="status-indicator status-good"></span>
+                        API Latency
+                    </div>
+                    <div class="metric-value" id="latency-value">145ms</div>
+                    <div class="metric-unit">Average Response Time</div>
+                    <div class="metric-chart" id="latency-chart"></div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span class="status-indicator status-good"></span>
+                        Requests/Second
+                    </div>
+                    <div class="metric-value" id="rps-value">847</div>
+                    <div class="metric-unit">Current Throughput</div>
+                    <div class="metric-chart" id="rps-chart"></div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span class="status-indicator status-good"></span>
+                        Database Pool
+                    </div>
+                    <div class="metric-value" id="db-value">23/50</div>
+                    <div class="metric-unit">Active Connections</div>
+                    <div class="metric-chart" id="db-chart"></div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <span class="status-indicator status-good"></span>
+                        Cache Hit Rate
+                    </div>
+                    <div class="metric-value" id="cache-value">94.7%</div>
+                    <div class="metric-unit">Redis Performance</div>
+                    <div class="metric-chart" id="cache-chart"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Microservices Architecture -->
+    <section id="architecture" class="microservices">
+        <div class="container">
+            <h2 class="section-title">Interactive Microservices Architecture</h2>
+            <div class="architecture-container" id="architecture-container">
+                <!-- Services will be dynamically positioned -->
+            </div>
+            <div style="text-align: center; margin-top: 2rem; color: #888;">
+                Click on services to see connections and data flow
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Log Monitor -->
+    <section id="logs" class="log-monitor">
+        <div class="container">
+            <h2 class="section-title">Live HTTP Request Monitor</h2>
+            <div class="log-terminal">
+                <div class="log-header">
+                    <div class="log-title">backend-server.log</div>
+                    <div class="log-controls">
+                        <button class="log-button" onclick="toggleLogs()">Pause</button>
+                        <button class="log-button" onclick="clearLogs()">Clear</button>
+                        <button class="log-button" onclick="exportLogs()">Export</button>
+                    </div>
+                </div>
+                <div class="log-content" id="log-content">
+                    <!-- Logs will be dynamically added -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Flow Diagram -->
+    <section id="dataflow" class="data-flow">
+        <div class="container">
+            <h2 class="section-title">System Data Flow Visualization</h2>
+            <div class="flow-diagram">
+                <div class="flow-step" style="top: 50px; left: 50px;">Client Request</div>
+                <div class="flow-arrow" style="top: 65px; left: 200px;">→</div>
+                
+                <div class="flow-step" style="top: 50px; left: 250px;">Load Balancer</div>
+                <div class="flow-arrow" style="top: 65px; left: 380px;">→</div>
+                
+                <div class="flow-step" style="top: 30px; left: 430px;">API Gateway</div>
+                <div class="flow-arrow" style="top: 45px; left: 550px;">↘</div>
+                
+                <div class="flow-step" style="top: 120px; left: 580px;">Auth Service</div>
+                <div class="flow-arrow" style="top: 135px; left: 480px;">←</div>
+                
+                <div class="flow-step" style="top: 120px; left: 300px;">Business Logic</div>
+                <div class="flow-arrow" style="top: 165px; left: 320px;">↓</div>
+                
+                <div class="flow-step" style="top: 210px; left: 250px;">Database Layer</div>
+                <div class="flow-arrow" style="top: 225px; left: 380px;">→</div>
+                
+                <div class="flow-step" style="top: 210px; left: 430px;">Cache Layer</div>
+                <div class="flow-arrow" style="top: 255px; left: 450px;">↓</div>
+                
+                <div class="flow-step" style="top: 300px; left: 400px;">Response Data</div>
+                <div class="flow-arrow" style="top: 315px; left: 300px;">←</div>
+                
+                <div class="flow-step" style="top: 300px; left: 150px;">Client Response</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Backend Engineering Projects</h2>
+            
+            <div class="project-terminal">
+                <div class="project-header">
+                    <div class="project-title">High-Performance Inventory Management API</div>
+                </div>
+                <div class="project-code">
+<span class="comment">// Optimized inventory system with real-time monitoring</span>
+<span class="keyword">class</span> <span class="function">InventoryAPI</span> {
+    <span class="keyword">private</span> <span class="variable">$redis</span>;
+    <span class="keyword">private</span> <span class="variable">$database</span>;
+    <span class="keyword">private</span> <span class="variable">$monitor</span>;
+    
+    <span class="keyword">public function</span> <span class="function">getInventory</span>(<span class="variable">$filters</span> = []) {
+        <span class="variable">$cacheKey</span> = <span class="string">'inventory:'</span> . <span class="function">md5</span>(<span class="function">serialize</span>(<span class="variable">$filters</span>));
+        
+        <span class="keyword">if</span> (<span class="variable">$cached</span> = <span class="variable">$this</span>-><span class="variable">redis</span>-><span class="function">get</span>(<span class="variable">$cacheKey</span>)) {
+            <span class="variable">$this</span>-><span class="variable">monitor</span>-><span class="function">logCacheHit</span>();
+            <span class="keyword">return</span> <span class="function">json_decode</span>(<span class="variable">$cached</span>);
+        }
+        
+        <span class="variable">$data</span> = <span class="variable">$this</span>-><span class="variable">database</span>-><span class="function">query</span>(<span class="variable">$filters</span>);
+        <span class="variable">$this</span>-><span class="variable">redis</span>-><span class="function">setex</span>(<span class="variable">$cacheKey</span>, 300, <span class="function">json_encode</span>(<span class="variable">$data</span>));
+        
+        <span class="keyword">return</span> <span class="variable">$data</span>;
+    }
+}
+                </div>
+                <div class="project-metrics">
+                    <span class="metric">Response Time: <span class="metric-value">95ms avg</span></span>
+                    <span class="metric">Cache Hit Rate: <span class="metric-value">94.7%</span></span>
+                    <span class="metric">Throughput: <span class="metric-value">1200 req/s</span></span>
+                    <span class="metric">Efficiency Gain: <span class="metric-value">40%</span></span>
+                </div>
+            </div>
+            
+            <div class="project-terminal">
+                <div class="project-header">
+                    <div class="project-title">Python Automation & Monitoring Suite</div>
+                </div>
+                <div class="project-code">
+<span class="comment"># Real-time system monitoring and automated responses</span>
+<span class="keyword">import</span> asyncio, psutil, mysql.connector
+<span class="keyword">from</span> prometheus_client <span class="keyword">import</span> CollectorRegistry, Gauge
+
+<span class="keyword">class</span> <span class="function">SystemMonitor</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>):
+        <span class="variable">self</span>.<span class="variable">metrics</span> = {
+            <span class="string">'cpu_usage'</span>: Gauge(<span class="string">'cpu_usage_percent'</span>),
+            <span class="string">'memory_usage'</span>: Gauge(<span class="string">'memory_usage_bytes'</span>),
+            <span class="string">'api_latency'</span>: Gauge(<span class="string">'api_response_time_ms'</span>)
+        }
+    
+    <span class="keyword">async def</span> <span class="function">monitor_system</span>(<span class="variable">self</span>):
+        <span class="keyword">while</span> <span class="keyword">True</span>:
+            <span class="variable">cpu</span> = psutil.<span class="function">cpu_percent</span>(interval=<span class="variable">1</span>)
+            <span class="variable">memory</span> = psutil.<span class="function">virtual_memory</span>().<span class="variable">used</span>
+            
+            <span class="variable">self</span>.<span class="variable">metrics</span>[<span class="string">'cpu_usage'</span>].<span class="function">set</span>(<span class="variable">cpu</span>)
+            <span class="variable">self</span>.<span class="variable">metrics</span>[<span class="string">'memory_usage'</span>].<span class="function">set</span>(<span class="variable">memory</span>)
+            
+            <span class="keyword">if</span> <span class="variable">cpu</span> > 80:
+                <span class="keyword">await</span> <span class="variable">self</span>.<span class="function">alert_high_cpu</span>()
+            
+            <span class="keyword">await</span> asyncio.<span class="function">sleep</span>(5)
+                </div>
+                <div class="project-metrics">
+                    <span class="metric">Monitoring Accuracy: <span class="metric-value">99.9%</span></span>
+                    <span class="metric">Alert Response: <span class="metric-value">< 30s</span></span>
+                    <span class="metric">Time Saved: <span class="metric-value">15 hrs/week</span></span>
+                    <span class="metric">System Uptime: <span class="metric-value">99.8%</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Initialize Connection Protocol</h2>
+            <div class="contact-terminal">
+                <div style="text-align: left; margin-bottom: 2rem;">
+                    <div style="color: #6a9955;">// Backend Systems Engineer</div>
+                    <div style="color: #6a9955;">// Specialized in high-performance APIs and microservices</div>
+                </div>
+                
+                <div class="availability-status">
+                    ● SYSTEM ONLINE - Available for immediate deployment
+                </div>
+                
+                <div class="contact-info">
+                    <div style="margin: 1rem 0;">
+                        <span style="color: #569cd6;">const</span> 
+                        <span style="color: #9cdcfe;">contactInfo</span> = {
+                    </div>
+                    <div style="margin-left: 2rem;">
+                        <span style="color: #ce9178;">email</span>: <span style="color: #ce9178;">"pedromercadodev@gmail.com"</span>,<br>
+                        <span style="color: #ce9178;">location</span>: <span style="color: #ce9178;">"Maracay, Venezuela"</span>,<br>
+                        <span style="color: #ce9178;">availability</span>: <span style="color: #ce9178;">"remote/on-site"</span>,<br>
+                        <span style="color: #ce9178;">response_time</span>: <span style="color: #ce9178;">"< 24hrs"</span>
+                    </div>
+                    <div>};</div>
+                </div>
+                
+                <div style="margin: 2rem 0; padding: 1rem; background: #0d1117; border-radius: 5px; text-align: left;">
+                    <div style="color: #00ff41;">$ curl -X POST https://pedro-backend.dev/api/contact \</div>
+                    <div style="color: #00ff41; margin-left: 2rem;">-H "Content-Type: application/json" \</div>
+                    <div style="color: #00ff41; margin-left: 2rem;">-d '{"project": "your_requirements"}'</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>pedro@backend-server:~$ echo "Backend Developer | API Architect | System Optimizer"</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #888;">
+                Serving scalable solutions since 2021 | Uptime: 99.8% | Performance: Optimized
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Matrix Background Effect
+        function initMatrix() {
+            const canvas = document.getElementById('matrix');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()';
+            const lettersArray = letters.split('');
+            
+            const fontSize = 14;
+            const columns = canvas.width / fontSize;
+            
+            const drops = [];
+            for(let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+            
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#00ff41';
+                ctx.font = fontSize + 'px courier';
+                
+                for(let i = 0; i < drops.length; i++) {
+                    const text = lettersArray[Math.floor(Math.random() * lettersArray.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+            
+            setInterval(draw, 35);
+        }
+
+        // Performance Metrics Animation
+        function initPerformanceMetrics() {
+            const metrics = {
+                cpu: { element: 'cpu-value', chart: 'cpu-chart', values: [] },
+                memory: { element: 'memory-value', chart: 'memory-chart', values: [] },
+                latency: { element: 'latency-value', chart: 'latency-chart', values: [] },
+                rps: { element: 'rps-value', chart: 'rps-chart', values: [] },
+                db: { element: 'db-value', chart: 'db-chart', values: [] },
+                cache: { element: 'cache-value', chart: 'cache-chart', values: [] }
+            };
+
+            function updateMetrics() {
+                // CPU Usage (15-35%)
+                const cpu = Math.floor(Math.random() * 20) + 15;
+                document.getElementById('cpu-value').textContent = cpu + '%';
+                
+                // Memory Usage (1.0-2.5GB)
+                const memory = (Math.random() * 1.5 + 1.0).toFixed(1);
+                document.getElementById('memory-value').textContent = memory + 'GB';
+                
+                // API Latency (120-180ms)
+                const latency = Math.floor(Math.random() * 60) + 120;
+                document.getElementById('latency-value').textContent = latency + 'ms';
+                
+                // Requests per second (800-1200)
+                const rps = Math.floor(Math.random() * 400) + 800;
+                document.getElementById('rps-value').textContent = rps.toLocaleString();
+                
+                // Database connections (15-35/50)
+                const db = Math.floor(Math.random() * 20) + 15;
+                document.getElementById('db-value').textContent = db + '/50';
+                
+                // Cache hit rate (92-97%)
+                const cache = (Math.random() * 5 + 92).toFixed(1);
+                document.getElementById('cache-value').textContent = cache + '%';
+
+                // Update charts
+                updateCharts();
+            }
+
+            function updateCharts() {
+                Object.keys(metrics).forEach(key => {
+                    const chart = document.getElementById(metrics[key].chart);
+                    if (chart) {
+                        chart.innerHTML = '';
+                        for (let i = 0; i < 20; i++) {
+                            const bar = document.createElement('div');
+                            bar.className = 'chart-line';
+                            bar.style.left = (i * 15) + 'px';
+                            bar.style.height = Math.random() * 50 + 10 + 'px';
+                            bar.style.animationDelay = (i * 0.1) + 's';
+                            chart.appendChild(bar);
+                        }
+                    }
+                });
+            }
+
+            setInterval(updateMetrics, 3000);
+            updateMetrics(); // Initial call
+        }
+
+        // Microservices Architecture
+        function initMicroservices() {
+            const container = document.getElementById('architecture-container');
+            
+            const services = [
+                { name: 'API Gateway', x: 50, y: 50, status: 'healthy', connections: [1, 2, 3] },
+                { name: 'Auth Service', x: 300, y: 50, status: 'healthy', connections: [4] },
+                { name: 'User Service', x: 550, y: 50, status: 'healthy', connections: [5] },
+                { name: 'Inventory API', x: 50, y: 200, status: 'healthy', connections: [5, 6] },
+                { name: 'Payment API', x: 300, y: 200, status: 'warning', connections: [6] },
+                { name: 'Database', x: 550, y: 200, status: 'healthy', connections: [] },
+                { name: 'Cache Layer', x: 200, y: 350, status: 'healthy', connections: [] }
+            ];
+
+            services.forEach((service, index) => {
+                const node = document.createElement('div');
+                node.className = 'service-node';
+                node.style.left = service.x + 'px';
+                node.style.top = service.y + 'px';
+                node.innerHTML = `
+                    <div class="service-title">${service.name}</div>
+                    <div class="service-status">Status: ${service.status}</div>
+                `;
+                
+                node.addEventListener('click', () => {
+                    document.querySelectorAll('.service-node').forEach(n => n.classList.remove('active'));
+                    node.classList.add('active');
+                    showConnections(index, service.connections);
+                });
+                
+                container.appendChild(node);
+            });
+
+            function showConnections(serviceIndex, connections) {
+                // Remove existing connections
+                document.querySelectorAll('.connection-line, .data-packet').forEach(el => el.remove());
+                
+                connections.forEach(targetIndex => {
+                    if (targetIndex < services.length) {
+                        createConnection(services[serviceIndex], services[targetIndex]);
+                    }
+                });
+            }
+
+            function createConnection(from, to) {
+                const line = document.createElement('div');
+                line.className = 'connection-line';
+                
+                const deltaX = to.x - from.x;
+                const deltaY = to.y - from.y;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                const angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
+                
+                line.style.left = (from.x + 60) + 'px';
+                line.style.top = (from.y + 30) + 'px';
+                line.style.width = distance + 'px';
+                line.style.transform = `rotate(${angle}deg)`;
+                
+                container.appendChild(line);
+                
+                // Add data packet animation
+                const packet = document.createElement('div');
+                packet.className = 'data-packet';
+                packet.style.left = (from.x + 60) + 'px';
+                packet.style.top = (from.y + 26) + 'px';
+                packet.style.transform = `rotate(${angle}deg)`;
+                
+                container.appendChild(packet);
+            }
+        }
+
+        // Live Log Monitor
+        let logsPaused = false;
+        let logInterval;
+
+        function initLogMonitor() {
+            const logContent = document.getElementById('log-content');
+            
+            const methods = ['GET', 'POST', 'PUT', 'DELETE'];
+            const endpoints = [
+                '/api/v1/inventory',
+                '/api/v1/users',
+                '/api/v1/auth/login',
+                '/api/v1/reports',
+                '/api/v1/payments',
+                '/api/v1/analytics'
+            ];
+            const statusCodes = [200, 201, 400, 404, 500];
+            const ips = ['192.168.1.', '10.0.0.', '172.16.0.'];
+
+            function addLogEntry() {
+                if (logsPaused) return;
+
+                const timestamp = new Date().toISOString();
+                const method = methods[Math.floor(Math.random() * methods.length)];
+                const endpoint = endpoints[Math.floor(Math.random() * endpoints.length)];
+                const status = statusCodes[Math.floor(Math.random() * statusCodes.length)];
+                const responseTime = Math.floor(Math.random() * 300) + 50;
+                const ip = ips[Math.floor(Math.random() * ips.length)] + Math.floor(Math.random() * 254);
+
+                const logEntry = document.createElement('div');
+                logEntry.className = 'log-entry';
+                
+                let levelClass = 'log-level-info';
+                if (status >= 400) levelClass = 'log-level-error';
+                else if (status >= 300) levelClass = 'log-level-warning';
+
+                let methodClass = `log-method-${method.toLowerCase()}`;
+
+                logEntry.innerHTML = `
+                    <span class="log-timestamp">${timestamp.split('T')[1].split('.')[0]}</span>
+                    <span class="${levelClass}">INFO</span>
+                    <span class="${methodClass}">${method}</span>
+                    <span>${endpoint}</span>
+                    <span style="color: #9cdcfe;">${status}</span>
+                    <span style="color: #ce9178;">${responseTime}ms</span>
+                    <span style="color: #888;">${ip}</span>
+                `;
+
+                logContent.appendChild(logEntry);
+                logContent.scrollTop = logContent.scrollHeight;
+
+                // Keep only last 50 entries
+                while (logContent.children.length > 50) {
+                    logContent.removeChild(logContent.firstChild);
+                }
+            }
+
+            logInterval = setInterval(addLogEntry, 1500);
+        }
+
+        function toggleLogs() {
+            logsPaused = !logsPaused;
+            const button = event.target;
+            button.textContent = logsPaused ? 'Resume' : 'Pause';
+        }
+
+        function clearLogs() {
+            document.getElementById('log-content').innerHTML = '';
+        }
+
+        function exportLogs() {
+            const logs = document.getElementById('log-content').innerText;
+            const blob = new Blob([logs], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `server-logs-${new Date().toISOString().split('T')[0]}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Initialize all components
+        document.addEventListener('DOMContentLoaded', () => {
+            initMatrix();
+            initPerformanceMetrics();
+            initMicroservices();
+            initLogMonitor();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('matrix');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
