@@ -600,6 +600,29 @@
             background: #9cdcfe20;
             transform: translateY(-2px);
         }
+        .project-link {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: transparent;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+
+        .project-link:hover {
+            background: #00ff4120;
+            color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 255, 65, 0.3);
+        }
+
+        .project-link:active {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -819,35 +842,47 @@
             
             <div class="project-terminal">
                 <div class="project-header">
-                    <div class="project-title">High-Performance Inventory Management API</div>
+                    <div class="project-title">🏪 High-Performance Inventory Management API</div>
+                    <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                        <a href="https://github.com/xpedrushx/inventory-management-api" target="_blank" class="project-link">
+                            📁 Ver Código en GitHub
+                        </a>
+                        <a href="https://github.com/xpedrushx/inventory-management-api#readme" target="_blank" class="project-link">
+                            📖 Documentación Completa
+                        </a>
+                    </div>
                 </div>
                 <div class="project-code">
-<span class="comment">// Optimized inventory system with real-time monitoring</span>
-<span class="keyword">class</span> <span class="function">InventoryAPI</span> {
-    <span class="keyword">private</span> <span class="variable">$redis</span>;
-    <span class="keyword">private</span> <span class="variable">$database</span>;
-    <span class="keyword">private</span> <span class="variable">$monitor</span>;
-    
-    <span class="keyword">public function</span> <span class="function">getInventory</span>(<span class="variable">$filters</span> = []) {
-        <span class="variable">$cacheKey</span> = <span class="string">'inventory:'</span> . <span class="function">md5</span>(<span class="function">serialize</span>(<span class="variable">$filters</span>));
-        
-        <span class="keyword">if</span> (<span class="variable">$cached</span> = <span class="variable">$this</span>-><span class="variable">redis</span>-><span class="function">get</span>(<span class="variable">$cacheKey</span>)) {
-            <span class="variable">$this</span>-><span class="variable">monitor</span>-><span class="function">logCacheHit</span>();
-            <span class="keyword">return</span> <span class="function">json_decode</span>(<span class="variable">$cached</span>);
-        }
-        
-        <span class="variable">$data</span> = <span class="variable">$this</span>-><span class="variable">database</span>-><span class="function">query</span>(<span class="variable">$filters</span>);
-        <span class="variable">$this</span>-><span class="variable">redis</span>-><span class="function">setex</span>(<span class="variable">$cacheKey</span>, 300, <span class="function">json_encode</span>(<span class="variable">$data</span>));
-        
-        <span class="keyword">return</span> <span class="variable">$data</span>;
-    }
-}
+            <span class="comment">// Sistema de inventario empresarial con arquitectura escalable</span>
+            <span class="keyword">class</span> <span class="function">InventoryAPI</span> {
+                <span class="keyword">private</span> <span class="variable">$features</span> = [
+                    <span class="string">'High-Performance'</span> => <span class="string">'1,200+ requests/second'</span>,
+                    <span class="string">'Smart Caching'</span> => <span class="string">'Redis con 94.7% hit rate'</span>,
+                    <span class="string">'Real-time Search'</span> => <span class="string">'Full-text indexing MySQL'</span>,
+                    <span class="string">'Docker Ready'</span> => <span class="string">'Containerización completa'</span>
+                ];
+                
+                <span class="keyword">public function</span> <span class="function">getArchitecture</span>() {
+                    <span class="keyword">return</span> [
+                        <span class="string">'backend'</span> => <span class="string">'PHP 8.2 + Composer'</span>,
+                        <span class="string">'database'</span> => <span class="string">'MySQL 8.0 optimizado'</span>,
+                        <span class="string">'cache'</span> => <span class="string">'Redis 7.0'</span>,
+                        <span class="string">'containers'</span> => <span class="string">'Docker + docker-compose'</span>,
+                        <span class="string">'api_design'</span> => <span class="string">'RESTful con JWT auth'</span>
+                    ];
+                }
+                
+                <span class="comment">// 1,833 líneas de código enterprise-grade</span>
+                <span class="comment">// Documentación completa con ejemplos</span>
+            }
                 </div>
                 <div class="project-metrics">
+                    <span class="metric">Líneas de Código: <span class="metric-value">1,833</span></span>
                     <span class="metric">Response Time: <span class="metric-value">95ms avg</span></span>
+                    <span class="metric">Throughput: <span class="metric-value">1,200 req/s</span></span>
                     <span class="metric">Cache Hit Rate: <span class="metric-value">94.7%</span></span>
-                    <span class="metric">Throughput: <span class="metric-value">1200 req/s</span></span>
-                    <span class="metric">Efficiency Gain: <span class="metric-value">40%</span></span>
+                    <span class="metric">Docker Ready: <span class="metric-value">✅ Sí</span></span>
+                    <span class="metric">Test Coverage: <span class="metric-value">90%+</span></span>
                 </div>
             </div>
             
