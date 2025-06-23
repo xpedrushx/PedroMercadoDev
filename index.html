@@ -886,43 +886,7 @@
                 </div>
             </div>
             
-            <div class="project-terminal">
-                <div class="project-header">
-                    <div class="project-title">Python Automation & Monitoring Suite</div>
-                </div>
-                <div class="project-code">
-<span class="comment"># Real-time system monitoring and automated responses</span>
-<span class="keyword">import</span> asyncio, psutil, mysql.connector
-<span class="keyword">from</span> prometheus_client <span class="keyword">import</span> CollectorRegistry, Gauge
-
-<span class="keyword">class</span> <span class="function">SystemMonitor</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>):
-        <span class="variable">self</span>.<span class="variable">metrics</span> = {
-            <span class="string">'cpu_usage'</span>: Gauge(<span class="string">'cpu_usage_percent'</span>),
-            <span class="string">'memory_usage'</span>: Gauge(<span class="string">'memory_usage_bytes'</span>),
-            <span class="string">'api_latency'</span>: Gauge(<span class="string">'api_response_time_ms'</span>)
-        }
-    
-    <span class="keyword">async def</span> <span class="function">monitor_system</span>(<span class="variable">self</span>):
-        <span class="keyword">while</span> <span class="keyword">True</span>:
-            <span class="variable">cpu</span> = psutil.<span class="function">cpu_percent</span>(interval=<span class="variable">1</span>)
-            <span class="variable">memory</span> = psutil.<span class="function">virtual_memory</span>().<span class="variable">used</span>
             
-            <span class="variable">self</span>.<span class="variable">metrics</span>[<span class="string">'cpu_usage'</span>].<span class="function">set</span>(<span class="variable">cpu</span>)
-            <span class="variable">self</span>.<span class="variable">metrics</span>[<span class="string">'memory_usage'</span>].<span class="function">set</span>(<span class="variable">memory</span>)
-            
-            <span class="keyword">if</span> <span class="variable">cpu</span> > 80:
-                <span class="keyword">await</span> <span class="variable">self</span>.<span class="function">alert_high_cpu</span>()
-            
-            <span class="keyword">await</span> asyncio.<span class="function">sleep</span>(5)
-                </div>
-                <div class="project-metrics">
-                    <span class="metric">Monitoring Accuracy: <span class="metric-value">99.9%</span></span>
-                    <span class="metric">Alert Response: <span class="metric-value">< 30s</span></span>
-                    <span class="metric">Time Saved: <span class="metric-value">15 hrs/week</span></span>
-                    <span class="metric">System Uptime: <span class="metric-value">99.8%</span></span>
-                </div>
-            </div>
         </div>
     </section>
 
